@@ -7,8 +7,11 @@ function Header() {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li>
-            <a href="#!" target="blank">
-              Repo
+            <a
+              href="https://github.com/southatelove/react-ecommerce"
+              target="blank"
+            >
+              github repo
             </a>
           </li>
         </ul>
