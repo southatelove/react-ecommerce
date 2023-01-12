@@ -40,7 +40,7 @@ function Shop() {
     console.log("Я ветка arm1");
     setAlertName([...alertName, item.displayName]);
   };
-
+  console.log("Я arm2");
   const removeFromBasket = (itemId) => {
     const newOrder = order.filter((element) => element.mainId !== itemId);
 
