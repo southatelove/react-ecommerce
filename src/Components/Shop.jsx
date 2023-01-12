@@ -37,7 +37,7 @@ function Shop() {
       });
       setOrder(newOrder);
     }
-
+    console.log("Я ветка arm1");
     setAlertName([...alertName, item.displayName]);
   };
 
