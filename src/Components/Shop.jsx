@@ -37,7 +37,8 @@ function Shop() {
       });
       setOrder(newOrder);
     }
-    setAlertName(item.displayName);
+
+    setAlertName([...alertName, item.displayName]);
   };
 
   const removeFromBasket = (itemId) => {
