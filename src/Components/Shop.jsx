@@ -10,8 +10,9 @@ import { BasketList } from "./BasketList";
 import { Alert } from "./Alert";
 
 function Shop() {
-  const { order, loading, alertName, isBasketShow } = useContext(ShopContext);
+  const { order, alertName, isBasketShow } = useContext(ShopContext);
   const [goods, setGoods] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // useEffect(function getGoods() {
   //   fetch("https://fortniteapi.io/v2/shop?lang=ru", {
@@ -33,6 +34,7 @@ function Shop() {
     }).then((response) =>
       response.json().then((data) => {
         data.shop && setGoods(data.shop);
+        setLoading(false);
       })
     );
   }, []);
