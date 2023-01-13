@@ -13,6 +13,18 @@ function Shop() {
   const { order, loading, alertName, isBasketShow } = useContext(ShopContext);
   const [goods, setGoods] = useState([]);
 
+  // useEffect(function getGoods() {
+  //   fetch("https://fortniteapi.io/v2/shop?lang=ru", {
+  //     headers: {
+  //       Authorization: "42b2d7d7-3b93d8a5-60f55d5b-c6fe7f91",
+  //     },
+  //   }).then((response) =>
+  //     response.json().then((data) => {
+  //       setGoods(data.shop);
+  //     })
+  //   );
+  //   // eslint-disable-next-line
+  // }, []);
   useEffect(function getGoods() {
     fetch("https://fortniteapi.io/v2/shop?lang=ru", {
       headers: {
@@ -20,10 +32,9 @@ function Shop() {
       },
     }).then((response) =>
       response.json().then((data) => {
-        setGoods(data.shop);
+        data.shop && setGoods(data.shop);
       })
     );
-    // eslint-disable-next-line
   }, []);
 
   return (
