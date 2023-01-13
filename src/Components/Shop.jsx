@@ -29,7 +29,7 @@ function Shop() {
   return (
     <main className="container content">
       <Cart quantity={order.length} />
-      {loading ? <Preloader /> : <GoodsList />}
+      {loading ? <Preloader /> : <GoodsList goods={goods} />}
       {isBasketShow && <BasketList />}
       {alertName && <Alert />}
     </main>
