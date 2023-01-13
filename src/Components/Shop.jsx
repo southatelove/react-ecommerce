@@ -27,7 +27,7 @@ function Shop() {
   //   );
   //   // eslint-disable-next-line
   // }, []);
-=======
+
   const addToBasket = (item) => {
     const itemIndex = order.findIndex(
       (orderItem) => orderItem.mainId === item.mainId
