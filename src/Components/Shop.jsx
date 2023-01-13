@@ -14,6 +14,7 @@ function Shop() {
   const [goods, setGoods] = useState([]);
   const [loading, setLoading] = useState(true);
 
+<<<<<<< HEAD
   // useEffect(function getGoods() {
   //   fetch("https://fortniteapi.io/v2/shop?lang=ru", {
   //     headers: {
@@ -26,6 +27,78 @@ function Shop() {
   //   );
   //   // eslint-disable-next-line
   // }, []);
+=======
+  const addToBasket = (item) => {
+    const itemIndex = order.findIndex(
+      (orderItem) => orderItem.mainId === item.mainId
+    );
+    if (itemIndex < 0) {
+      const newItem = {
+        ...item,
+        quantity: 1,
+      };
+      setOrder([...order, newItem]);
+    } else {
+      const newOrder = order.map((orderItem, index) => {
+        if (index === itemIndex) {
+          return {
+            ...orderItem,
+            quantity: orderItem.quantity + 1,
+          };
+        } else {
+          return orderItem;
+        }
+      });
+      setOrder(newOrder);
+    }
+    console.log("Я ветка arm1");
+    setAlertName([...alertName, item.displayName]);
+  };
+  console.log("Я arm2");
+  const removeFromBasket = (itemId) => {
+    const newOrder = order.filter((element) => element.mainId !== itemId);
+
+    setOrder(newOrder);
+  };
+
+  const incQuantity = (itemId) => {
+    const newOrder = order.map((element) => {
+      if (element.mainId === itemId) {
+        const newQuantity = element.quantity + 1;
+        return {
+          ...element,
+          quantity: newQuantity,
+        };
+      } else {
+        return element;
+      }
+    });
+    setOrder(newOrder);
+  };
+
+  const decQuantity = (itemId) => {
+    const newOrder = order.map((element) => {
+      if (element.mainId === itemId) {
+        const newQuantity = element.quantity - 1;
+        return {
+          ...element,
+          quantity: newQuantity >= 0 ? newQuantity : 0,
+        };
+      } else {
+        return element;
+      }
+    });
+    setOrder(newOrder);
+  };
+
+  const handleBasketShow = () => {
+    setBasketShow(!isBasketShow);
+  };
+
+  const closeAlert = () => {
+    setAlertName("");
+  };
+>>>>>>> 1ad893eee57c384d2a43f7c62c98a8945101f46a
   useEffect(function getGoods() {
     fetch("https://fortniteapi.io/v2/shop?lang=ru", {
       headers: {
