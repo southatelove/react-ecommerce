@@ -1,4 +1,4 @@
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 // import { API_KEY, API_URL } from "../config";
 
 import { ShopContext } from "./context";
@@ -10,8 +10,8 @@ import { BasketList } from "./BasketList";
 import { Alert } from "./Alert";
 
 function Shop() {
-  const { order, loading, setGoods, alertName, isBasketShow } =
-    useContext(ShopContext);
+  const { order, loading, alertName, isBasketShow } = useContext(ShopContext);
+  const [goods, setGoods] = useState([]);
 
   useEffect(function getGoods() {
     fetch("https://fortniteapi.io/v2/shop?lang=ru", {
