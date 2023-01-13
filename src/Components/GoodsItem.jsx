@@ -1,13 +1,8 @@
 function GoodsItem(props) {
-  const {
-    mainId,
-    displayName,
-    displayDescription,
-    price,
-    displayAssets,
-    addToBasket,
-  } = props;
+  const { mainId, displayName, displayDescription, price, displayAssets } =
+    props;
 
+  // const { addToBasket } = useContext(ShopContext);
   return (
     <>
       <div className="card">
